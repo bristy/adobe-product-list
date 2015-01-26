@@ -15,4 +15,5 @@
     <string name="sort">Sort-By</string>
     <string name="rating">rating</string>
     <string name="product_count">Product Count %d</string>
+    <string name="playstore">Play Store</string>
 </resources>

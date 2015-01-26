@@ -191,5 +191,13 @@
 
             </RelativeLayout>
         </android.support.v7.widget.CardView>
+        <Button
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:text="@string/playstore"
+            android:id="@+id/playstore"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@drawable/playstore"/>
     </LinearLayout>
 </RelativeLayout>

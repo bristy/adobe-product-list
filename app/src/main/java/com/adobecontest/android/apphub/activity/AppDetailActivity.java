@@ -1,6 +1,7 @@
 package com.adobecontest.android.apphub.activity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
@@ -114,9 +115,24 @@ public class AppDetailActivity extends ActionBarActivity {
                     toast.show();
                 }
             });
+            findViewById(R.id.playstore).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final String appPackageName = getPackageName(); // getPackageName() from Context or Activity object
+                    try {
+                        startActivity(new Intent(Intent.ACTION_VIEW,
+                                Uri.parse("market://details?id=" + getId(appModel.getmUrl()))));
+                    } catch (android.content.ActivityNotFoundException anfe) {
+                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(appModel.getmUrl())));
+                    }
+                }
+            });
         }
     }
 
+    private String getId(String url){
+        return url.split("id=")[1];
+    }
     private Intent createShareForecastIntent() {
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
         shareIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);

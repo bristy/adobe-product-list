@@ -54,8 +54,6 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:textStyle="bold"
-                    android:textColor="@color/white"
                     android:id="@+id/inapp_tv"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
@@ -69,12 +67,12 @@
                     android:paddingLeft="@dimen/padding_medium"
                     android:paddingRight="@dimen/padding_medium"
                     android:text="@string/purchase"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
 
                     />
 
                 <TextView
-                    android:textStyle="bold"
-                    android:textColor="@color/white"
                     android:id="@+id/rating_tv"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
@@ -87,9 +85,12 @@
                     android:minWidth="@dimen/sort_button_width"
                     android:paddingLeft="@dimen/padding_medium"
                     android:paddingRight="@dimen/padding_medium"
-                    android:text="@string/rating" />
+                    android:text="@string/rating"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
 
             </LinearLayout>
         </RelativeLayout>
     </LinearLayout>
+
 </FrameLayout>
