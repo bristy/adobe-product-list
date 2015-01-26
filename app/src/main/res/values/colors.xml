@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="grey_light">#D3D3D3</color>
+    <color name="primary_dark">#FF8800</color>
+    <color name="primary">#FFBB33</color>
+    <color name="disable">#F0BD5F</color>
+    <color name="blue">#33B5E5</color>
+    <color name="divider">#CC0000</color>
+    <color name="sort_label">#9933CC</color>
+    <color name="green_dark">#669900</color>
+    <color name="tool_product">#C3DDEE</color>
+    <color name="tool_sort">#F5B4A5</color>
+    <color name="white">#FFFFFF</color>
+</resources>

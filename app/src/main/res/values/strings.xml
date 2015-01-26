@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">AppHUB</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_app_detail">AppDetailActivity</string>
+
+    <string name="inapp_purchase" translatable="false">In-App: %s</string>
+    <string name="action_share">Share</string>
+    <string name="type">Type</string>
+    <string name="purchase">In-App Purchase</string>
+    <string name="updated">Last Updated</string>
+    <string name="sort">Sort-By</string>
+    <string name="rating">rating</string>
+    <string name="product_count">Product Count %d</string>
+</resources>
