@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -39,7 +40,7 @@ import java.util.Map;
  * create an instance of this fragment.
  */
 public class AppListFragment extends Fragment {
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
     private RestClient mRestClient;
     private static final String BASE_URL = "http://adobe.0x10.info/api/products?";
 
@@ -51,7 +52,7 @@ public class AppListFragment extends Fragment {
     private boolean mSortByRating = false;
     private TextView mInAppTextView;
     private TextView mRatingTextView;
-
+    private LinearLayout mProgressLL;
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -79,7 +80,8 @@ public class AppListFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_app_list, container, false);
-
+        mProgressLL = (LinearLayout) rootView.findViewById(R.id.progress_ll);
+        mProgressLL.setVisibility(View.GONE);
         mProductCountTextView = (TextView) rootView.findViewById(R.id.product_cout_textview);
         mInAppTextView = (TextView) rootView.findViewById(R.id.inapp_tv);
         mRatingTextView = (TextView) rootView.findViewById(R.id.rating_tv);
@@ -189,7 +191,14 @@ public class AppListFragment extends Fragment {
 
 
         @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            mProgressLL.setVisibility(View.VISIBLE);
+        }
+
+        @Override
         protected void onPostExecute(List<AppModel> dataList) {
+            mProgressLL.setVisibility(View.GONE);
             if (dataList == null) {
                 // error
                 return;
@@ -217,10 +226,10 @@ public class AppListFragment extends Fragment {
                             mapper.getTypeFactory().
                                     constructCollectionType(List.class, AppModel.class));
                     if (DEBUG) {
-                        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-                                + appJsonData);
-                        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-                                + mAppDataList);
+                        //System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+                        //        + appJsonData);
+                        //System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+                        //        + mAppDataList);
                     }
                 } catch (IOException e) {
                     Log.e(TAG, e.toString());
